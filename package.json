@@ -1,0 +1,15 @@
+{
+  "name": "turf-lambda",
+  "version": "0.0.1",
+  "description": "Execute turf functions on geojson files dropped into s3",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mapsam",
+  "license": "ISC",
+  "dependencies": {
+    "@turf/turf": "^4.1.0",
+    "aws-sdk": "^2.41.0"
+  }
+}

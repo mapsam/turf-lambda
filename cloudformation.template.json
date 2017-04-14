@@ -1,0 +1,5 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "Turf Lambda: execute turf functions on geojson files dropped into s3",
+  "Resources": {}
+}
