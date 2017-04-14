@@ -4,7 +4,7 @@
   "description": "Execute turf functions on geojson files dropped into s3",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "bundle": "zip -r ../turf-lambda.zip *"
   },
   "author": "mapsam",
   "license": "ISC",
