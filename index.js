@@ -1,7 +1,7 @@
 var buffer = require('@turf/buffer');
 var AWS = require('aws-sdk');
 
-module.exports.handler = function(event, context, callback) {
+exports.handler = function(event, context, callback) {
 
   var s3 = new AWS.S3({
     accessKeyId: process.env.ACCESS_KEY,
@@ -16,7 +16,7 @@ module.exports.handler = function(event, context, callback) {
 
   var params = {
     Key: task + '/' + event.Records[0].s3.object.key,
-    Bucket: event.Records[0].s3.bucket.arn;
+    Bucket: event.Records[0].s3.bucket.arn
   };
 
   console.log('s3 params: ', params);

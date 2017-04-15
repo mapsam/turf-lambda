@@ -4,12 +4,16 @@
   "description": "Execute turf functions on geojson files dropped into s3",
   "main": "index.js",
   "scripts": {
-    "bundle": "zip -r ../turf-lambda.zip *"
+    "bundle": "zip -r ../turf-lambda.zip *",
+    "lint": "eslint --no-eslintrc -c .eslintrc *.js"
   },
   "author": "mapsam",
   "license": "ISC",
   "dependencies": {
     "@turf/buffer": "^4.1.0",
     "aws-sdk": "^2.41.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0"
   }
 }
