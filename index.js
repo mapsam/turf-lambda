@@ -3,6 +3,8 @@ var AWS = require('aws-sdk');
 
 exports.handler = function(event, context, callback) {
 
+  console.log(JSON.stringify(event));
+
   var s3 = new AWS.S3({
     accessKeyId: process.env.ACCESS_KEY,
     secretAccessKey: process.env.SECRET_KEY,
