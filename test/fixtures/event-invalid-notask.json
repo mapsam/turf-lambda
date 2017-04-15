@@ -1,0 +1,38 @@
+{
+    "Records": [
+        {
+            "eventVersion": "2.0",
+            "eventSource": "aws:s3",
+            "awsRegion": "us-west-2",
+            "eventTime": "2017-04-15T00:22:34.417Z",
+            "eventName": "ObjectCreated:Put",
+            "userIdentity": {
+                "principalId": "123"
+            },
+            "requestParameters": {
+                "sourceIPAddress": "96.66.253.121"
+            },
+            "responseElements": {
+                "x-amz-request-id": "123abc",
+                "x-amz-id-2": "some-long-hash"
+            },
+            "s3": {
+                "s3SchemaVersion": "1.0",
+                "configurationId": "config-id",
+                "bucket": {
+                    "name": "cugos-test-bucket",
+                    "ownerIdentity": {
+                        "principalId": "principal-id"
+                    },
+                    "arn": "arn:aws:s3:::cugos-test-bucket"
+                },
+                "object": {
+                    "key": "invalid",
+                    "size": 109452,
+                    "eTag": "1df47b1e662f0e6773bfb42ccdc0d502",
+                    "sequencer": "0058F167CA63D36698"
+                }
+            }
+        }
+    ]
+}

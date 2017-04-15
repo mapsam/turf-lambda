@@ -1,9 +1,10 @@
-var buffer = require('@turf/buffer');
+var turf = require('@turf/turf');
 var AWS = require('aws-sdk');
 
 exports.handler = function(event, context, callback) {
 
-  console.log(JSON.stringify(event));
+  if (!callback || typeof callback !== 'function') throw new Error('callback is not a function');
+  if (typeof event !== 'object') return callback('event is not an object');
 
   var s3 = new AWS.S3({
     accessKeyId: process.env.ACCESS_KEY,
@@ -14,28 +15,23 @@ exports.handler = function(event, context, callback) {
   var bucket = event.Records[0].s3.bucket.name;
   var key = event.Records[0].s3.object.key;
   var task = key.split('/')[0];
-  console.log('task: ', task);
 
   var params = {
     Key: key,
     Bucket: bucket
   };
 
-  console.log('s3 params: ', params);
-
   s3.getObject(params, function(err, data) {
     if (err) return callback(err);
-
+    
     try {
       var original = JSON.parse(data.Body);
-      console.log('original geojson: ', JSON.stringify(original));
     } catch (err) {
       return callback('Error parsing original GeoJSON');
     }
 
-    if (buffer) {
-      var final = buffer(original, 500, 'meters');
-      console.log('final geojson: ', JSON.stringify(final));
+    if (turf[task]) {
+      var final = turf[task](original, 500, 'meters');
       return callback(null, final);
     } else {
       return callback(`Turf method (${task}) does not exist.`);
