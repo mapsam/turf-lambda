@@ -1,0 +1,38 @@
+{
+    "Records": [
+        {
+            "eventVersion": "2.0",
+            "eventSource": "aws:s3",
+            "awsRegion": "us-west-2",
+            "eventTime": "2017-04-15T00:22:34.417Z",
+            "eventName": "ObjectCreated:Put",
+            "userIdentity": {
+                "principalId": "A3SOGJDVR44MLN"
+            },
+            "requestParameters": {
+                "sourceIPAddress": "96.66.253.121"
+            },
+            "responseElements": {
+                "x-amz-request-id": "F5135CD0970C36FA",
+                "x-amz-id-2": "29/Z1YR04OCTbUJedB1nSzu3zBb1gFnM1etSOceF5mJC1FR0t7VnzOd68L4JT9vPg1fn6X5PwyI="
+            },
+            "s3": {
+                "s3SchemaVersion": "1.0",
+                "configurationId": "bafe7342-06c3-4208-96d3-d13ce371fbb0",
+                "bucket": {
+                    "name": "cugos",
+                    "ownerIdentity": {
+                        "principalId": "A3SOGJDVR44MLN"
+                    },
+                    "arn": "arn:aws:s3:::cugos"
+                },
+                "object": {
+                    "key": "linestring-cutoff-tile.geojson",
+                    "size": 109452,
+                    "eTag": "1df47b1e662f0e6773bfb42ccdc0d502",
+                    "sequencer": "0058F167CA63D36698"
+                }
+            }
+        }
+    ]
+}
