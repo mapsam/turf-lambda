@@ -11,7 +11,7 @@ exports.handler = function(event, context, callback) {
     region: process.env.LAMBDA_REGION
   });
 
-  var bucket = 'arn:aws:s3:::cugos'.split(':::')[1];
+  var bucket = event.Records[0].s3.bucket.name;
   var key = event.Records[0].s3.object.key;
   var task = key.split('/')[0];
   console.log('task: ', task);
