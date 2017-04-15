@@ -4,4 +4,6 @@ Drop a GeoJSON into a particular bucket, run a turf function on that GeoJSON, pu
 
 ## Updating the lambda
 
-Zips from GitSha: `https://github.com/mapsam/turf-lambda/archive/{gitsha}.zip`
+1. `npm install --production` to install all dependencies
+1. `npm run bundle` to zip the project (including `node_modules`)
+1. Upload zip to lambda function

@@ -11,28 +11,31 @@ exports.handler = function(event, context, callback) {
     region: process.env.LAMBDA_REGION
   });
 
-  var info = 'arn:aws:s3:::cugos'.split(':::')[1].split('/');
-  console.log('info: ', info);
-  var bucket = info[0];
-  var task = info[1];
+  var bucket = 'arn:aws:s3:::cugos'.split(':::')[1];
+  var key = event.Records[0].s3.object.key;
+  var task = key.split('/')[0];
+  console.log('task: ', task);
 
   var params = {
-    Key: task + '/' + event.Records[0].s3.object.key,
-    Bucket: event.Records[0].s3.bucket.arn
+    Key: key,
+    Bucket: bucket
   };
 
   console.log('s3 params: ', params);
 
   s3.getObject(params, function(err, data) {
+    if (err) return callback(err);
+
     try {
-      var original = JSON.parse(data);
-      console.log('original geojson: ', original);
+      var original = JSON.parse(data.Body);
+      console.log('original geojson: ', JSON.stringify(original));
     } catch (err) {
       return callback('Error parsing original GeoJSON');
     }
 
     if (buffer) {
-      var final = buffer(original);
+      var final = buffer(original, 500, 'meters');
+      console.log('final geojson: ', JSON.stringify(final));
       return callback(null, final);
     } else {
       return callback(`Turf method (${task}) does not exist.`);
