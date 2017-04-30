@@ -27,7 +27,7 @@
                     "arn": "arn:aws:s3:::cugos-test-bucket"
                 },
                 "object": {
-                    "key": "buffer/test.geojson",
+                    "key": "test.geojson",
                     "size": 109452,
                     "eTag": "1df47b1e662f0e6773bfb42ccdc0d502",
                     "sequencer": "0058F167CA63D36698"
